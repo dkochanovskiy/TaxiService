@@ -38,5 +38,8 @@ Cars<br>
         </tr>
     </c:forEach>
 </table>
+<form action="LogoutServlet" method="post">
+    <input type="submit" value="Log out"/>
+</form>
 </body>
 </html>

@@ -9,13 +9,15 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.sendRedirect("login.html");
+        HttpSession session =req.getSession();
+        session.setAttribute("session", null);
+        resp.sendRedirect("login.jsp");
+
     }
 
 }

@@ -17,7 +17,7 @@ public class DataSource {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUsername("root");
         ds.setPassword("root");
-        ds.setUrl("jdbc:mysql://localhost/test");
+        ds.setUrl("jdbc:mysql://localhost/serviceTaxi");
 
         // the settings below are optional -- dbcp can work with defaults
         ds.setMinIdle(5);

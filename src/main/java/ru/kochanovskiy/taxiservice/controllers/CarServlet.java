@@ -5,15 +5,14 @@ import ru.kochanovskiy.taxiservice.models.pojo.Car;
 import ru.kochanovskiy.taxiservice.services.CarService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by sa on 24.02.17.
- */
+@WebServlet("/CarServlet")
 public class CarServlet extends HttpServlet {
     static private Logger logger = Logger.getLogger(CarServlet.class);
     @Override
@@ -21,7 +20,7 @@ public class CarServlet extends HttpServlet {
         try{
             List<Car> carsList= CarService.getAllCars();
             req.setAttribute("carsList", carsList);
-            req.getRequestDispatcher("/cars/car.jsp").forward(req, resp);
+            req.getRequestDispatcher("/car.jsp").forward(req, resp);
         }
         catch (ServletException e){
             logger.trace("Невозможно выполнить SQL-запрос!");
