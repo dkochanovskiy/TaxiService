@@ -1,5 +1,6 @@
 package ru.kochanovskiy.taxiservice.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kochanovskiy.taxiservice.models.dao.UserDAO;
 
@@ -9,11 +10,18 @@ import ru.kochanovskiy.taxiservice.models.dao.UserDAO;
 
 @Service
 public class UserService {
-    public static boolean checkIsNotEmpty(String login, String password){
-        return (UserDAO.checkIsNotEmpty(login, password));
+    private UserDAO userDAO;
+
+    @Autowired
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 
-    public static String getPass(String login){
-        return (UserDAO.getPass(login));
+    public boolean checkIsNotEmpty(String login, String password){
+        return (userDAO.checkIsNotEmpty(login, password));
+    }
+
+    public String getPass(String login){
+        return (userDAO.getPass(login));
     }
 }

@@ -1,6 +1,7 @@
-package ru.kochanovskiy.taxiservice.controllers;
+package ru.kochanovskiy.taxiservice.controllers.Servlets;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.kochanovskiy.taxiservice.models.pojo.Car;
 import ru.kochanovskiy.taxiservice.services.CarService;
 
@@ -12,13 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/CarServlet")
+//@WebServlet("/CarServlet")
 public class CarServlet extends HttpServlet {
+    private CarService carService;
+
+    @Autowired
+    public void setUserDAO(CarService carService) {
+        this.carService = carService;
+    }
     static private Logger logger = Logger.getLogger(CarServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
         try{
-            List<Car> carsList= CarService.getAllCars();
+            List<Car> carsList= carService.getAllCars();
             req.setAttribute("carsList", carsList);
             req.getRequestDispatcher("/car.jsp").forward(req, resp);
         }

@@ -1,6 +1,8 @@
 package ru.kochanovskiy.taxiservice.models.dao;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import ru.kochanovskiy.taxiservice.models.connector.DataSource;
 
 import java.beans.PropertyVetoException;
@@ -13,6 +15,7 @@ import java.sql.SQLException;
 /**
  * Created by sa on 08.03.17.
  */
+@Repository
 public class UserDAO {
 
     Connection connection = null;
@@ -27,7 +30,7 @@ public class UserDAO {
     /*
     *   Check for occupancy
      */
-    public static boolean checkIsNotEmpty(String login, String password){
+    public boolean checkIsNotEmpty(String login, String password){
         boolean boo;
         if(!(login.equals("")) && (!(password.equals("")))) {
             boo = true;
@@ -38,7 +41,7 @@ public class UserDAO {
     /*
     *   Obtaining password by login
      */
-    public static String getPass(String login){
+    public String getPass(String login){
         String password = "";
         try (PreparedStatement ps = DataSource.getInstance().getConnection().prepareStatement("select password from Users where login = '" + login +"'");
              ResultSet rs = ps.executeQuery()){
