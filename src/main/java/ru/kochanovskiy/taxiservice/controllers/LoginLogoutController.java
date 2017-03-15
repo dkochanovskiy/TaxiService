@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.kochanovskiy.taxiservice.controllers.Servlets.LoginServlet;
 import ru.kochanovskiy.taxiservice.services.UserService;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +26,8 @@ public class LoginLogoutController {
     static private Logger logger = Logger.getLogger(LoginServlet.class);
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    protected String LoginGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String LoginGet() {
+        logger.trace("Get");
         return "login";
         //req.getRequestDispatcher("/login.jsp").include(req, resp);
     }

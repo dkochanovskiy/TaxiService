@@ -12,9 +12,9 @@
     <title>Users</title>
 </head>
 <body>
-${name}<br>
-<form action="LoginServlet" method="post">
-    Login:<input type="text" name="login"/>
+<br>
+<form action="/login" method="post">
+    Login:<input type="text" name="login" autofocus/>
     Password:<input type="password" name="password">
     <input type="submit" value="log in">
 </form>

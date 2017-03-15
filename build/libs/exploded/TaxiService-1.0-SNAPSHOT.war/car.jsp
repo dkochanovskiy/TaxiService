@@ -15,13 +15,6 @@
 </head>
 <body>
 Cars<br>
-<ul>
-    <li><a href = "/">orders</a></li>
-    <li><a href = "/car">cars</a></li>
-    <li><a href = "/driver">drivers</a></li>
-    <li><a href = "/status">statuses</a></li>
-    <li><a href = "/user">users</a></li>
-</ul>
 <table border="1">
     <tr>
         <td>Марка</td>
@@ -38,7 +31,7 @@ Cars<br>
         </tr>
     </c:forEach>
 </table>
-<form action="LogoutServlet" method="post">
+<form action="/login" method="post">
     <input type="submit" value="Log out"/>
 </form>
 </body>

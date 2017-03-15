@@ -19,12 +19,14 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpServletRequest request = (HttpServletRequest) req;
-        HttpSession session = request.getSession(false);
-        if(session == null){
+        //HttpSession session = ;
+        String url = request.getServletPath();
+        if((null == request.getSession(false) && !url.equals("/login"))){
             //response.sendRedirect("/login");
-            request.getRequestDispatcher("/login.jsp").forward(req, resp);
+            //request.getRequestDispatcher("/login.jsp").forward(req, resp);
+            response.sendRedirect(request.getContextPath() + "/login");
         } else
-            chain.doFilter(request, response);
+            chain.doFilter(req, resp);
     }
 
     @Override
