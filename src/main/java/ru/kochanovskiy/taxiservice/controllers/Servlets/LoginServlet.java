@@ -3,9 +3,7 @@ package ru.kochanovskiy.taxiservice.controllers.Servlets;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.kochanovskiy.taxiservice.services.UserService;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
@@ -43,6 +41,5 @@ public class LoginServlet extends HttpServlet {
         catch (Exception e){
             e.printStackTrace();
         }
-
     }
 }

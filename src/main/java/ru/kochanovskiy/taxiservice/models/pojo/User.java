@@ -4,10 +4,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
-/**
- * Created by sa on 19.02.17.
- */
-
 @XmlRootElement
 public class User implements Serializable {
 
